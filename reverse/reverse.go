@@ -6,11 +6,11 @@ import (
 )
 
 type ReverseRequest struct {
-	Text string `json:"text"`
+	Text string `json:"input"`
 }
 
 type ReverseResponse struct {
-	Reversed string `json:"reversed"`
+	Reverse string `json:"reverse"`
 }
 
 func Init() {
@@ -30,8 +30,8 @@ func reverseHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	reversed := reverseString(req.Text)
-	resp := ReverseResponse{Reversed: reversed}
+	reverse := reverseString(req.Text)
+	resp := ReverseResponse{Reverse: reverse}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
 }
