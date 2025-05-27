@@ -31,7 +31,6 @@ func reverseHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	reversed := reverseString(req.Text)
-
 	resp := ReverseResponse{Reversed: reversed}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
